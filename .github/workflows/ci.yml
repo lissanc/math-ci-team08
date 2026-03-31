@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - run: npm run format
+      - run: npm run format:check
 
   test:
     name: Test
