@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint:
-    name: Link
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,3 +18,24 @@ jobs:
       - run: npm ci
       - run: npm run lint
 
+format:
+  name: Format Check
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+    - run: npm ci
+    - run: npm run format
+
+test: 
+  name: Test
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+    - run: npm ci
+    - run: npm test
